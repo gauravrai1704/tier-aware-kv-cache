@@ -1,0 +1,96 @@
+{
+  "T1-Only (4GB)": [
+    {
+      "config_name": "LLaMA-7B",
+      "workload_name": "long-context",
+      "tier_mode": "tiered",
+      "total_tokens": 2679,
+      "total_time_s": 8.048584253999934,
+      "throughput_tps": 332.853569703095,
+      "mean_ttft_ms": 28.560511499989616,
+      "mean_tpot_ms": 0.44417463867080753,
+      "t1_peak_util": 0.85,
+      "t2_peak_util": 0.0,
+      "demotion_count": 0,
+      "promotion_count": 0,
+      "oom_events": 0
+    },
+    {
+      "config_name": "LLaMA-7B",
+      "workload_name": "long-context",
+      "tier_mode": "tiered",
+      "total_tokens": 2679,
+      "total_time_s": 5.582453574000056,
+      "throughput_tps": 479.89651225713413,
+      "mean_ttft_ms": 33.95165074999795,
+      "mean_tpot_ms": 0.3187555782009282,
+      "t1_peak_util": 0.85,
+      "t2_peak_util": 0.0,
+      "demotion_count": 0,
+      "promotion_count": 0,
+      "oom_events": 0
+    },
+    {
+      "config_name": "LLaMA-7B",
+      "workload_name": "long-context",
+      "tier_mode": "tiered",
+      "total_tokens": 2679,
+      "total_time_s": 8.140648504999945,
+      "throughput_tps": 329.08926092983523,
+      "mean_ttft_ms": 39.85824849999631,
+      "mean_tpot_ms": 0.40206419970248164,
+      "t1_peak_util": 0.85,
+      "t2_peak_util": 0.0,
+      "demotion_count": 0,
+      "promotion_count": 0,
+      "oom_events": 0
+    }
+  ],
+  "Tiered  (4+32)": [
+    {
+      "config_name": "LLaMA-7B",
+      "workload_name": "long-context",
+      "tier_mode": "tiered",
+      "total_tokens": 2679,
+      "total_time_s": 5.595060426000032,
+      "throughput_tps": 478.8152041309133,
+      "mean_ttft_ms": 35.10731325002325,
+      "mean_tpot_ms": 0.32462132250763226,
+      "t1_peak_util": 0.85,
+      "t2_peak_util": 2.2569999999999997,
+      "demotion_count": 0,
+      "promotion_count": 0,
+      "oom_events": 0
+    },
+    {
+      "config_name": "LLaMA-7B",
+      "workload_name": "long-context",
+      "tier_mode": "tiered",
+      "total_tokens": 2679,
+      "total_time_s": 7.867225973000018,
+      "throughput_tps": 340.5266366053566,
+      "mean_ttft_ms": 22.77914725002006,
+      "mean_tpot_ms": 0.3899191104901788,
+      "t1_peak_util": 0.85,
+      "t2_peak_util": 2.2569999999999997,
+      "demotion_count": 0,
+      "promotion_count": 0,
+      "oom_events": 0
+    },
+    {
+      "config_name": "LLaMA-7B",
+      "workload_name": "long-context",
+      "tier_mode": "tiered",
+      "total_tokens": 2679,
+      "total_time_s": 5.872709227999962,
+      "throughput_tps": 456.1778722547741,
+      "mean_ttft_ms": 20.030322999986083,
+      "mean_tpot_ms": 0.3652364438213416,
+      "t1_peak_util": 0.85,
+      "t2_peak_util": 2.2569999999999997,
+      "demotion_count": 0,
+      "promotion_count": 0,
+      "oom_events": 0
+    }
+  ]
+}

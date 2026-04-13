@@ -1,0 +1,57 @@
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-13B  |  Workload: beam-search
+  T1 cap: 1024MB  T2 cap: 15000MB
+############################################################
+
+[T1-Only (1024MB)]
+
+============================================================
+Benchmark: LLaMA-13B | beam-search | runs=5
+  T1=1024MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=694.5 tok/s  ttft=1.33ms  tpot=1.195ms  T1=85.0%  T2=0.0%
+
+  Run 2/5 ... throughput=705.3 tok/s  ttft=1.28ms  tpot=1.175ms  T1=85.0%  T2=0.0%
+
+  Run 3/5 ... throughput=692.2 tok/s  ttft=1.42ms  tpot=1.186ms  T1=85.0%  T2=0.0%
+
+  Run 4/5 ... throughput=705.3 tok/s  ttft=1.26ms  tpot=1.174ms  T1=85.0%  T2=0.0%
+
+  Run 5/5 ... throughput=696.9 tok/s  ttft=1.25ms  tpot=1.194ms  T1=85.0%  T2=0.0%
+
+  Summary:
+    Throughput : 698.9 ± 6.1 tok/s
+    TTFT       : 1.31 ms
+    TPOT       : 1.185 ms
+
+[Tiered  (1024+15000)]
+
+============================================================
+Benchmark: LLaMA-13B | beam-search | runs=5
+  T1=1024MB  T2=15000MB
+============================================================
+
+  Run 1/5 ... throughput=695.6 tok/s  ttft=1.24ms  tpot=1.196ms  T1=85.0%  T2=339.5%
+
+  Run 2/5 ... throughput=703.5 tok/s  ttft=1.25ms  tpot=1.178ms  T1=85.0%  T2=339.5%
+
+  Run 3/5 ... throughput=697.2 tok/s  ttft=1.27ms  tpot=1.192ms  T1=85.0%  T2=339.5%
+
+  Run 4/5 ... throughput=696.0 tok/s  ttft=1.39ms  tpot=1.193ms  T1=85.0%  T2=339.5%
+
+  Run 5/5 ... throughput=704.7 tok/s  ttft=1.27ms  tpot=1.177ms  T1=85.0%  T2=339.5%
+
+  Summary:
+    Throughput : 699.4 ± 4.4 tok/s
+    TTFT       : 1.29 ms
+    TPOT       : 1.187 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (1024MB)                    698.9         1.31      1.185
+  Tiered  (1024+15000)                699.4         1.29      1.187
+────────────────────────────────────────────────────────────

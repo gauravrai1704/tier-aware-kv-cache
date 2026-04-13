@@ -1,0 +1,59 @@
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-7B  |  Workload: beam-search
+  T1 cap: 400MB  T2 cap: 8192MB
+############################################################
+
+[T1-Only (400MB)]
+
+============================================================
+Benchmark: LLaMA-7B | beam-search | runs=5
+  T1=400MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=658.1 tok/s  ttft=1.31ms  tpot=1.320ms  T1=85.0%  T2=0.0%
+
+  Run 2/5 ... throughput=651.7 tok/s  ttft=1.22ms  tpot=1.335ms  T1=85.0%  T2=0.0%
+
+  Run 3/5 ... throughput=659.2 tok/s  ttft=1.22ms  tpot=1.315ms  T1=85.0%  T2=0.0%
+
+  Run 4/5 ... throughput=651.3 tok/s  ttft=1.22ms  tpot=1.336ms  T1=85.0%  T2=0.0%
+
+  Run 5/5 ... throughput=657.2 tok/s  ttft=1.24ms  tpot=1.317ms  T1=85.0%  T2=0.0%
+
+  Summary:
+    Throughput : 655.5 ± 3.7 tok/s
+    TTFT       : 1.24 ms
+    TPOT       : 1.325 ms
+
+[Tiered  (400+8192)]
+
+============================================================
+Benchmark: LLaMA-7B | beam-search | runs=5
+  T1=400MB  T2=8192MB
+============================================================
+
+  Run 1/5 ... throughput=649.4 tok/s  ttft=1.22ms  tpot=1.333ms  T1=85.0%  T2=381.8%
+
+  Run 2/5 ... throughput=650.0 tok/s  ttft=1.23ms  tpot=1.336ms  T1=85.0%  T2=381.8%
+
+  Run 3/5 ... throughput=658.0 tok/s  ttft=1.24ms  tpot=1.318ms  T1=85.0%  T2=381.8%
+
+  Run 4/5 ... throughput=647.2 tok/s  ttft=1.39ms  tpot=1.319ms  T1=85.0%  T2=381.8%
+
+  Run 5/5 ... throughput=658.2 tok/s  ttft=1.23ms  tpot=1.318ms  T1=85.0%  T2=381.8%
+
+  Summary:
+    Throughput : 652.6 ± 5.2 tok/s
+    TTFT       : 1.26 ms
+    TPOT       : 1.325 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (400MB)                     655.5         1.24      1.325
+  Tiered  (400+8192)                  652.6         1.26      1.325
+────────────────────────────────────────────────────────────
+
+Report saved to results/mistral_7b_beam_t1400mb.json

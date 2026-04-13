@@ -1,0 +1,57 @@
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-13B  |  Workload: beam-search
+  T1 cap: 512MB  T2 cap: 15000MB
+############################################################
+
+[T1-Only (512MB)]
+
+============================================================
+Benchmark: LLaMA-13B | beam-search | runs=5
+  T1=512MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=627.4 tok/s  ttft=1.35ms  tpot=1.350ms  T1=85.0%  T2=0.0%
+
+  Run 2/5 ... throughput=635.4 tok/s  ttft=1.26ms  tpot=1.331ms  T1=85.0%  T2=0.0%
+
+  Run 3/5 ... throughput=627.8 tok/s  ttft=1.24ms  tpot=1.348ms  T1=85.0%  T2=0.0%
+
+  Run 4/5 ... throughput=637.0 tok/s  ttft=1.27ms  tpot=1.330ms  T1=85.0%  T2=0.0%
+
+  Run 5/5 ... throughput=630.5 tok/s  ttft=1.26ms  tpot=1.346ms  T1=85.0%  T2=0.0%
+
+  Summary:
+    Throughput : 631.6 ± 4.4 tok/s
+    TTFT       : 1.28 ms
+    TPOT       : 1.341 ms
+
+[Tiered  (512+15000)]
+
+============================================================
+Benchmark: LLaMA-13B | beam-search | runs=5
+  T1=512MB  T2=15000MB
+============================================================
+
+  Run 1/5 ... throughput=628.4 tok/s  ttft=1.25ms  tpot=1.349ms  T1=85.0%  T2=342.4%
+
+  Run 2/5 ... throughput=634.9 tok/s  ttft=1.25ms  tpot=1.331ms  T1=85.0%  T2=342.4%
+
+  Run 3/5 ... throughput=628.7 tok/s  ttft=1.32ms  tpot=1.348ms  T1=85.0%  T2=342.4%
+
+  Run 4/5 ... throughput=629.2 tok/s  ttft=1.25ms  tpot=1.347ms  T1=85.0%  T2=342.4%
+
+  Run 5/5 ... throughput=636.0 tok/s  ttft=1.27ms  tpot=1.332ms  T1=85.0%  T2=342.4%
+
+  Summary:
+    Throughput : 631.4 ± 3.7 tok/s
+    TTFT       : 1.27 ms
+    TPOT       : 1.341 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (512MB)                     631.6         1.28      1.341
+  Tiered  (512+15000)                 631.4         1.27      1.341
+────────────────────────────────────────────────────────────

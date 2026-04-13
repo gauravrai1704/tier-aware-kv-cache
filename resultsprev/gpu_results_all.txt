@@ -1,0 +1,448 @@
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-7B  |  Workload: short-context
+############################################################
+
+[T1-Only (4GB)]
+
+============================================================
+Benchmark: LLaMA-7B | short-context | runs=5
+  T1=4096MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=6094.4 tok/s  ttft=0.52ms  tpot=0.048ms  T1=85.0%
+
+  Run 2/5 ... throughput=6457.4 tok/s  ttft=0.50ms  tpot=0.041ms  T1=85.0%
+
+  Run 3/5 ... throughput=6468.4 tok/s  ttft=1.13ms  tpot=0.037ms  T1=85.0%
+
+  Run 4/5 ... throughput=6002.5 tok/s  ttft=0.51ms  tpot=0.049ms  T1=85.0%
+
+  Run 5/5 ... throughput=6376.4 tok/s  ttft=1.10ms  tpot=0.040ms  T1=85.0%
+
+  Summary:
+    Throughput : 6279.8 ± 216.6 tok/s
+    TTFT       : 0.75 ms
+    TPOT       : 0.043 ms
+
+[Tiered  (4+32)]
+
+============================================================
+Benchmark: LLaMA-7B | short-context | runs=5
+  T1=4096MB  T2=32768MB
+============================================================
+
+  Run 1/5 ... throughput=6455.2 tok/s  ttft=0.49ms  tpot=0.040ms  T1=85.0%
+
+  Run 2/5 ... throughput=6337.2 tok/s  ttft=0.49ms  tpot=0.045ms  T1=85.0%
+
+  Run 3/5 ... throughput=6559.7 tok/s  ttft=1.15ms  tpot=0.036ms  T1=85.0%
+
+  Run 4/5 ... throughput=6394.8 tok/s  ttft=0.49ms  tpot=0.044ms  T1=85.0%
+
+  Run 5/5 ... throughput=6418.1 tok/s  ttft=1.10ms  tpot=0.040ms  T1=85.0%
+
+  Summary:
+    Throughput : 6433.0 ± 82.8 tok/s
+    TTFT       : 0.74 ms
+    TPOT       : 0.041 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (4GB)                      6279.8         0.75      0.043
+  Tiered  (4+32)                     6433.0         0.74      0.041
+────────────────────────────────────────────────────────────
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-7B  |  Workload: long-context
+############################################################
+
+[T1-Only (4GB)]
+
+============================================================
+Benchmark: LLaMA-7B | long-context | runs=5
+  T1=4096MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=1405.4 tok/s  ttft=6.04ms  tpot=0.202ms  T1=85.0%
+
+  Run 2/5 ... throughput=1403.4 tok/s  ttft=5.85ms  tpot=0.203ms  T1=85.0%
+
+  Run 3/5 ... throughput=1389.9 tok/s  ttft=5.80ms  tpot=0.211ms  T1=85.0%
+
+  Run 4/5 ... throughput=1415.3 tok/s  ttft=11.46ms  tpot=0.193ms  T1=85.0%
+
+  Run 5/5 ... throughput=1408.9 tok/s  ttft=5.75ms  tpot=0.203ms  T1=85.0%
+
+  Summary:
+    Throughput : 1404.6 ± 9.4 tok/s
+    TTFT       : 6.98 ms
+    TPOT       : 0.202 ms
+
+[Tiered  (4+32)]
+
+============================================================
+Benchmark: LLaMA-7B | long-context | runs=5
+  T1=4096MB  T2=32768MB
+============================================================
+
+  Run 1/5 ... throughput=1400.0 tok/s  ttft=5.75ms  tpot=0.195ms  T1=85.0%
+
+  Run 2/5 ... throughput=1419.6 tok/s  ttft=10.98ms  tpot=0.193ms  T1=85.0%
+
+  Run 3/5 ... throughput=1350.4 tok/s  ttft=11.71ms  tpot=0.209ms  T1=85.0%
+
+  Run 4/5 ... throughput=1388.0 tok/s  ttft=5.95ms  tpot=0.205ms  T1=85.0%
+
+  Run 5/5 ... throughput=1417.4 tok/s  ttft=5.78ms  tpot=0.202ms  T1=85.0%
+
+  Summary:
+    Throughput : 1395.1 ± 28.2 tok/s
+    TTFT       : 8.03 ms
+    TPOT       : 0.201 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (4GB)                      1404.6         6.98      0.202
+  Tiered  (4+32)                     1395.1         8.03      0.201
+────────────────────────────────────────────────────────────
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-7B  |  Workload: mixed
+############################################################
+
+[T1-Only (4GB)]
+
+============================================================
+Benchmark: LLaMA-7B | mixed | runs=5
+  T1=4096MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=2020.3 tok/s  ttft=4.29ms  tpot=0.184ms  T1=85.0%
+
+  Run 2/5 ... throughput=2015.4 tok/s  ttft=4.19ms  tpot=0.185ms  T1=85.0%
+
+  Run 3/5 ... throughput=2025.7 tok/s  ttft=4.16ms  tpot=0.185ms  T1=85.0%
+
+  Run 4/5 ... throughput=1993.4 tok/s  ttft=4.12ms  tpot=0.195ms  T1=85.0%
+
+  Run 5/5 ... throughput=2041.1 tok/s  ttft=4.12ms  tpot=0.185ms  T1=85.0%
+
+  Summary:
+    Throughput : 2019.2 ± 17.3 tok/s
+    TTFT       : 4.18 ms
+    TPOT       : 0.187 ms
+
+[Tiered  (4+32)]
+
+============================================================
+Benchmark: LLaMA-7B | mixed | runs=5
+  T1=4096MB  T2=32768MB
+============================================================
+
+  Run 1/5 ... throughput=2017.5 tok/s  ttft=4.16ms  tpot=0.185ms  T1=85.0%
+
+  Run 2/5 ... throughput=2012.2 tok/s  ttft=6.92ms  tpot=0.175ms  T1=85.0%
+
+  Run 3/5 ... throughput=2034.5 tok/s  ttft=4.18ms  tpot=0.184ms  T1=85.0%
+
+  Run 4/5 ... throughput=2021.1 tok/s  ttft=4.20ms  tpot=0.184ms  T1=85.0%
+
+  Run 5/5 ... throughput=1993.6 tok/s  ttft=9.42ms  tpot=0.175ms  T1=85.0%
+
+  Summary:
+    Throughput : 2015.8 ± 14.9 tok/s
+    TTFT       : 5.78 ms
+    TPOT       : 0.181 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (4GB)                      2019.2         4.18      0.187
+  Tiered  (4+32)                     2015.8         5.78      0.181
+────────────────────────────────────────────────────────────
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-7B  |  Workload: beam-search
+############################################################
+
+[T1-Only (4GB)]
+
+============================================================
+Benchmark: LLaMA-7B | beam-search | runs=5
+  T1=4096MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=4006.5 tok/s  ttft=1.25ms  tpot=0.042ms  T1=85.0%
+
+  Run 2/5 ... throughput=3723.0 tok/s  ttft=1.24ms  tpot=0.058ms  T1=85.0%
+
+  Run 3/5 ... throughput=4003.1 tok/s  ttft=1.25ms  tpot=0.042ms  T1=85.0%
+
+  Run 4/5 ... throughput=3793.3 tok/s  ttft=1.21ms  tpot=0.057ms  T1=85.0%
+
+  Run 5/5 ... throughput=3957.3 tok/s  ttft=1.24ms  tpot=0.042ms  T1=85.0%
+
+  Summary:
+    Throughput : 3896.6 ± 130.3 tok/s
+    TTFT       : 1.24 ms
+    TPOT       : 0.048 ms
+
+[Tiered  (4+32)]
+
+============================================================
+Benchmark: LLaMA-7B | beam-search | runs=5
+  T1=4096MB  T2=32768MB
+============================================================
+
+  Run 1/5 ... throughput=3794.4 tok/s  ttft=1.24ms  tpot=0.058ms  T1=85.0%
+
+  Run 2/5 ... throughput=3746.9 tok/s  ttft=1.20ms  tpot=0.059ms  T1=85.0%
+
+  Run 3/5 ... throughput=3987.0 tok/s  ttft=1.23ms  tpot=0.042ms  T1=85.0%
+
+  Run 4/5 ... throughput=3730.0 tok/s  ttft=1.25ms  tpot=0.042ms  T1=85.0%
+
+  Run 5/5 ... throughput=3938.9 tok/s  ttft=1.25ms  tpot=0.042ms  T1=85.0%
+
+  Summary:
+    Throughput : 3839.4 ± 116.4 tok/s
+    TTFT       : 1.23 ms
+    TPOT       : 0.049 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (4GB)                      3896.6         1.24      0.048
+  Tiered  (4+32)                     3839.4         1.23      0.049
+────────────────────────────────────────────────────────────
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-13B  |  Workload: short-context
+############################################################
+
+[T1-Only (4GB)]
+
+============================================================
+Benchmark: LLaMA-13B | short-context | runs=5
+  T1=4096MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=5355.3 tok/s  ttft=0.72ms  tpot=0.055ms  T1=85.0%
+
+  Run 2/5 ... throughput=5323.6 tok/s  ttft=1.37ms  tpot=0.051ms  T1=85.0%
+
+  Run 3/5 ... throughput=5367.9 tok/s  ttft=0.71ms  tpot=0.054ms  T1=85.0%
+
+  Run 4/5 ... throughput=5276.2 tok/s  ttft=1.37ms  tpot=0.054ms  T1=85.0%
+
+  Run 5/5 ... throughput=5356.9 tok/s  ttft=0.71ms  tpot=0.054ms  T1=85.0%
+
+  Summary:
+    Throughput : 5336.0 ± 37.3 tok/s
+    TTFT       : 0.97 ms
+    TPOT       : 0.054 ms
+
+[Tiered  (4+32)]
+
+============================================================
+Benchmark: LLaMA-13B | short-context | runs=5
+  T1=4096MB  T2=32768MB
+============================================================
+
+  Run 1/5 ... throughput=5423.3 tok/s  ttft=0.70ms  tpot=0.054ms  T1=85.0%
+
+  Run 2/5 ... throughput=5377.4 tok/s  ttft=1.33ms  tpot=0.050ms  T1=85.0%
+
+  Run 3/5 ... throughput=5384.5 tok/s  ttft=1.38ms  tpot=0.049ms  T1=85.0%
+
+  Run 4/5 ... throughput=5353.9 tok/s  ttft=0.71ms  tpot=0.054ms  T1=85.0%
+
+  Run 5/5 ... throughput=5366.2 tok/s  ttft=0.70ms  tpot=0.054ms  T1=85.0%
+
+  Summary:
+    Throughput : 5381.0 ± 26.3 tok/s
+    TTFT       : 0.97 ms
+    TPOT       : 0.052 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (4GB)                      5336.0         0.97      0.054
+  Tiered  (4+32)                     5381.0         0.97      0.052
+────────────────────────────────────────────────────────────
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-13B  |  Workload: long-context
+############################################################
+
+[T1-Only (4GB)]
+
+============================================================
+Benchmark: LLaMA-13B | long-context | runs=5
+  T1=4096MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=1088.2 tok/s  ttft=8.01ms  tpot=0.235ms  T1=85.0%
+
+  Run 2/5 ... throughput=1102.4 tok/s  ttft=13.27ms  tpot=0.218ms  T1=85.0%
+
+  Run 3/5 ... throughput=1099.9 tok/s  ttft=13.05ms  tpot=0.225ms  T1=85.0%
+
+  Run 4/5 ... throughput=1091.7 tok/s  ttft=7.48ms  tpot=0.234ms  T1=85.0%
+
+  Run 5/5 ... throughput=1103.6 tok/s  ttft=13.48ms  tpot=0.218ms  T1=85.0%
+
+  Summary:
+    Throughput : 1097.2 ± 6.8 tok/s
+    TTFT       : 11.06 ms
+    TPOT       : 0.226 ms
+
+[Tiered  (4+32)]
+
+============================================================
+Benchmark: LLaMA-13B | long-context | runs=5
+  T1=4096MB  T2=32768MB
+============================================================
+
+  Run 1/5 ... throughput=1094.7 tok/s  ttft=7.58ms  tpot=0.234ms  T1=85.0%
+
+  Run 2/5 ... throughput=1099.4 tok/s  ttft=7.50ms  tpot=0.233ms  T1=85.0%
+
+  Run 3/5 ... throughput=1095.2 tok/s  ttft=7.59ms  tpot=0.227ms  T1=85.0%
+
+  Run 4/5 ... throughput=1095.3 tok/s  ttft=7.60ms  tpot=0.233ms  T1=85.0%
+
+  Run 5/5 ... throughput=1097.0 tok/s  ttft=13.42ms  tpot=0.225ms  T1=85.0%
+
+  Summary:
+    Throughput : 1096.3 ± 1.9 tok/s
+    TTFT       : 8.74 ms
+    TPOT       : 0.230 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (4GB)                      1097.2        11.06      0.226
+  Tiered  (4+32)                     1096.3         8.74      0.230
+────────────────────────────────────────────────────────────
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-13B  |  Workload: mixed
+############################################################
+
+[T1-Only (4GB)]
+
+============================================================
+Benchmark: LLaMA-13B | mixed | runs=5
+  T1=4096MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=1593.5 tok/s  ttft=6.23ms  tpot=0.225ms  T1=85.0%
+
+  Run 2/5 ... throughput=1620.1 tok/s  ttft=5.93ms  tpot=0.215ms  T1=85.0%
+
+  Run 3/5 ... throughput=1586.5 tok/s  ttft=5.95ms  tpot=0.223ms  T1=85.0%
+
+  Run 4/5 ... throughput=1603.1 tok/s  ttft=8.71ms  tpot=0.215ms  T1=85.0%
+
+  Run 5/5 ... throughput=1626.6 tok/s  ttft=5.96ms  tpot=0.215ms  T1=85.0%
+
+  Summary:
+    Throughput : 1606.0 ± 17.1 tok/s
+    TTFT       : 6.56 ms
+    TPOT       : 0.219 ms
+
+[Tiered  (4+32)]
+
+============================================================
+Benchmark: LLaMA-13B | mixed | runs=5
+  T1=4096MB  T2=32768MB
+============================================================
+
+  Run 1/5 ... throughput=1614.2 tok/s  ttft=8.65ms  tpot=0.215ms  T1=85.0%
+
+  Run 2/5 ... throughput=1611.9 tok/s  ttft=8.60ms  tpot=0.215ms  T1=85.0%
+
+  Run 3/5 ... throughput=1610.9 tok/s  ttft=8.91ms  tpot=0.215ms  T1=85.0%
+
+  Run 4/5 ... throughput=1628.7 tok/s  ttft=5.90ms  tpot=0.215ms  T1=85.0%
+
+  Run 5/5 ... throughput=1611.6 tok/s  ttft=8.51ms  tpot=0.214ms  T1=85.0%
+
+  Summary:
+    Throughput : 1615.5 ± 7.5 tok/s
+    TTFT       : 8.12 ms
+    TPOT       : 0.215 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (4GB)                      1606.0         6.56      0.219
+  Tiered  (4+32)                     1615.5         8.12      0.215
+────────────────────────────────────────────────────────────
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-13B  |  Workload: beam-search
+############################################################
+
+[T1-Only (4GB)]
+
+============================================================
+Benchmark: LLaMA-13B | beam-search | runs=5
+  T1=4096MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=2838.9 tok/s  ttft=1.34ms  tpot=0.095ms  T1=85.0%
+
+  Run 2/5 ... throughput=3081.9 tok/s  ttft=1.27ms  tpot=0.077ms  T1=85.0%
+
+  Run 3/5 ... throughput=2928.7 tok/s  ttft=1.25ms  tpot=0.093ms  T1=85.0%
+
+  Run 4/5 ... throughput=3090.8 tok/s  ttft=1.25ms  tpot=0.077ms  T1=85.0%
+
+  Run 5/5 ... throughput=2928.4 tok/s  ttft=1.29ms  tpot=0.093ms  T1=85.0%
+
+  Summary:
+    Throughput : 2973.7 ± 109.2 tok/s
+    TTFT       : 1.28 ms
+    TPOT       : 0.087 ms
+
+[Tiered  (4+32)]
+
+============================================================
+Benchmark: LLaMA-13B | beam-search | runs=5
+  T1=4096MB  T2=32768MB
+============================================================
+
+  Run 1/5 ... throughput=2905.8 tok/s  ttft=1.41ms  tpot=0.094ms  T1=85.0%
+
+  Run 2/5 ... throughput=3076.8 tok/s  ttft=1.26ms  tpot=0.078ms  T1=85.0%
+
+  Run 3/5 ... throughput=2909.7 tok/s  ttft=1.30ms  tpot=0.094ms  T1=85.0%
+
+  Run 4/5 ... throughput=2940.1 tok/s  ttft=1.25ms  tpot=0.093ms  T1=85.0%
+
+  Run 5/5 ... throughput=3095.2 tok/s  ttft=1.25ms  tpot=0.077ms  T1=85.0%
+
+  Summary:
+    Throughput : 2985.5 ± 92.9 tok/s
+    TTFT       : 1.29 ms
+    TPOT       : 0.087 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (4GB)                      2973.7         1.28      0.087
+  Tiered  (4+32)                     2985.5         1.29      0.087
+────────────────────────────────────────────────────────────

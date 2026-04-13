@@ -1,0 +1,57 @@
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-7B  |  Workload: long-context
+  T1 cap: 512MB  T2 cap: 15000MB
+############################################################
+
+[T1-Only (512MB)]
+
+============================================================
+Benchmark: LLaMA-7B | long-context | runs=5
+  T1=512MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=1337.4 tok/s  ttft=6.08ms  tpot=0.248ms  T1=84.8%
+
+  Run 2/5 ... throughput=1342.7 tok/s  ttft=5.87ms  tpot=0.246ms  T1=84.8%
+
+  Run 3/5 ... throughput=1332.5 tok/s  ttft=5.82ms  tpot=0.256ms  T1=84.8%
+
+  Run 4/5 ... throughput=1348.1 tok/s  ttft=11.82ms  tpot=0.237ms  T1=84.8%
+
+  Run 5/5 ... throughput=1348.6 tok/s  ttft=5.75ms  tpot=0.247ms  T1=84.8%
+
+  Summary:
+    Throughput : 1341.9 ± 6.9 tok/s
+    TTFT       : 7.07 ms
+    TPOT       : 0.247 ms
+
+[Tiered  (512+15000)]
+
+============================================================
+Benchmark: LLaMA-7B | long-context | runs=5
+  T1=512MB  T2=15000MB
+============================================================
+
+  Run 1/5 ... throughput=1339.9 tok/s  ttft=5.86ms  tpot=0.238ms  T1=84.8%
+
+  Run 2/5 ... throughput=1350.2 tok/s  ttft=11.46ms  tpot=0.239ms  T1=84.8%
+
+  Run 3/5 ... throughput=1327.6 tok/s  ttft=11.77ms  tpot=0.247ms  T1=84.8%
+
+  Run 4/5 ... throughput=1342.2 tok/s  ttft=5.77ms  tpot=0.248ms  T1=84.8%
+
+  Run 5/5 ... throughput=1340.1 tok/s  ttft=5.99ms  tpot=0.247ms  T1=84.8%
+
+  Summary:
+    Throughput : 1340.0 ± 8.1 tok/s
+    TTFT       : 8.17 ms
+    TPOT       : 0.244 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (512MB)                    1341.9         7.07      0.247
+  Tiered  (512+15000)                1340.0         8.17      0.244
+────────────────────────────────────────────────────────────

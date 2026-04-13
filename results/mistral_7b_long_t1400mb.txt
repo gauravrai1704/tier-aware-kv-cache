@@ -1,0 +1,59 @@
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-7B  |  Workload: long-context
+  T1 cap: 400MB  T2 cap: 8192MB
+############################################################
+
+[T1-Only (400MB)]
+
+============================================================
+Benchmark: LLaMA-7B | long-context | runs=5
+  T1=400MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=516.6 tok/s  ttft=6.14ms  tpot=1.441ms  T1=85.0%  T2=0.0%
+
+  Run 2/5 ... throughput=516.5 tok/s  ttft=5.77ms  tpot=1.441ms  T1=85.0%  T2=0.0%
+
+  Run 3/5 ... throughput=511.8 tok/s  ttft=5.83ms  tpot=1.453ms  T1=85.0%  T2=0.0%
+
+  Run 4/5 ... throughput=516.9 tok/s  ttft=11.56ms  tpot=1.433ms  T1=85.0%  T2=0.0%
+
+  Run 5/5 ... throughput=517.4 tok/s  ttft=5.83ms  tpot=1.440ms  T1=85.0%  T2=0.0%
+
+  Summary:
+    Throughput : 515.8 ± 2.3 tok/s
+    TTFT       : 7.03 ms
+    TPOT       : 1.442 ms
+
+[Tiered  (400+8192)]
+
+============================================================
+Benchmark: LLaMA-7B | long-context | runs=5
+  T1=400MB  T2=8192MB
+============================================================
+
+  Run 1/5 ... throughput=516.4 tok/s  ttft=5.87ms  tpot=1.429ms  T1=85.0%  T2=941.2%
+
+  Run 2/5 ... throughput=513.1 tok/s  ttft=11.35ms  tpot=1.432ms  T1=85.0%  T2=941.2%
+
+  Run 3/5 ... throughput=513.9 tok/s  ttft=11.23ms  tpot=1.441ms  T1=85.0%  T2=941.2%
+
+  Run 4/5 ... throughput=515.2 tok/s  ttft=5.79ms  tpot=1.442ms  T1=85.0%  T2=941.2%
+
+  Run 5/5 ... throughput=514.7 tok/s  ttft=5.85ms  tpot=1.433ms  T1=85.0%  T2=941.2%
+
+  Summary:
+    Throughput : 514.7 ± 1.3 tok/s
+    TTFT       : 8.02 ms
+    TPOT       : 1.436 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (400MB)                     515.8         7.03      1.442
+  Tiered  (400+8192)                  514.7         8.02      1.436
+────────────────────────────────────────────────────────────
+
+Report saved to results/mistral_7b_long_t1400mb.json

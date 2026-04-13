@@ -1,0 +1,57 @@
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-13B  |  Workload: long-context
+  T1 cap: 4096MB  T2 cap: 15000MB
+############################################################
+
+[T1-Only (4096MB)]
+
+============================================================
+Benchmark: LLaMA-13B | long-context | runs=5
+  T1=4096MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=516.5 tok/s  ttft=8.02ms  tpot=1.252ms  T1=85.0%  T2=0.0%
+
+  Run 2/5 ... throughput=516.3 tok/s  ttft=13.26ms  tpot=1.239ms  T1=85.0%  T2=0.0%
+
+  Run 3/5 ... throughput=517.8 tok/s  ttft=13.32ms  tpot=1.242ms  T1=85.0%  T2=0.0%
+
+  Run 4/5 ... throughput=513.8 tok/s  ttft=7.46ms  tpot=1.245ms  T1=85.0%  T2=0.0%
+
+  Run 5/5 ... throughput=520.9 tok/s  ttft=12.69ms  tpot=1.234ms  T1=85.0%  T2=0.0%
+
+  Summary:
+    Throughput : 517.1 ± 2.6 tok/s
+    TTFT       : 10.95 ms
+    TPOT       : 1.242 ms
+
+[Tiered  (4096+15000)]
+
+============================================================
+Benchmark: LLaMA-13B | long-context | runs=5
+  T1=4096MB  T2=15000MB
+============================================================
+
+  Run 1/5 ... throughput=517.4 tok/s  ttft=7.52ms  tpot=1.252ms  T1=85.0%  T2=826.8%
+
+  Run 2/5 ... throughput=517.8 tok/s  ttft=7.65ms  tpot=1.252ms  T1=85.0%  T2=826.8%
+
+  Run 3/5 ... throughput=519.2 tok/s  ttft=7.56ms  tpot=1.242ms  T1=85.0%  T2=826.8%
+
+  Run 4/5 ... throughput=515.7 tok/s  ttft=7.63ms  tpot=1.251ms  T1=85.0%  T2=826.8%
+
+  Run 5/5 ... throughput=517.8 tok/s  ttft=12.89ms  tpot=1.244ms  T1=85.0%  T2=826.8%
+
+  Summary:
+    Throughput : 517.6 ± 1.2 tok/s
+    TTFT       : 8.65 ms
+    TPOT       : 1.248 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (4096MB)                    517.1        10.95      1.242
+  Tiered  (4096+15000)                517.6         8.65      1.248
+────────────────────────────────────────────────────────────

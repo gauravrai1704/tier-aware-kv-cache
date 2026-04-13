@@ -1,0 +1,517 @@
+INFO 04-13 13:46:50 [utils.py:233] non-default args: {'dtype': 'float16', 'max_model_len': 1280, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.95, 'enforce_eager': True, 'enable_lora': None, 'reasoning_parser_plugin': '', 'model': 'mistralai/Mistral-7B-v0.1'}
+INFO 04-13 13:46:52 [model.py:549] Resolved architecture: MistralForCausalLM
+WARNING 04-13 13:46:52 [model.py:2016] Casting torch.bfloat16 to torch.float16.
+INFO 04-13 13:46:52 [model.py:1678] Using max model len 1280
+INFO 04-13 13:46:52 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 04-13 13:46:52 [vllm.py:790] Asynchronous scheduling is enabled.
+WARNING 04-13 13:46:52 [vllm.py:848] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 04-13 13:46:52 [vllm.py:859] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 04-13 13:46:52 [vllm.py:1025] Cudagraph is disabled under eager mode
+INFO 04-13 13:46:52 [compilation.py:290] Enabled custom fusions: norm_quant, act_quant
+(EngineCore pid=3681811) INFO 04-13 13:46:56 [core.py:105] Initializing a V1 LLM engine (v0.19.0) with config: model='mistralai/Mistral-7B-v0.1', speculative_config=None, tokenizer='mistralai/Mistral-7B-v0.1', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=1280, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=mistralai/Mistral-7B-v0.1, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=3681811) INFO 04-13 13:46:56 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.58.0.52:59997 backend=nccl
+(EngineCore pid=3681811) INFO 04-13 13:46:56 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=3681811) INFO 04-13 13:46:56 [gpu_model_runner.py:4735] Starting to load model mistralai/Mistral-7B-v0.1...
+(EngineCore pid=3681811) INFO 04-13 13:46:57 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=3681811) INFO 04-13 13:46:57 [flash_attn.py:596] Using FlashAttention version 2
+(EngineCore pid=3681811) Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+(EngineCore pid=3681811) Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:02<00:02,  2.05s/it]
+(EngineCore pid=3681811) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.46s/it]
+(EngineCore pid=3681811) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.55s/it]
+(EngineCore pid=3681811) 
+(EngineCore pid=3681811) INFO 04-13 13:47:02 [default_loader.py:384] Loading weights took 3.15 seconds
+(EngineCore pid=3681811) INFO 04-13 13:47:02 [gpu_model_runner.py:4820] Model loading took 13.5 GiB memory and 5.127630 seconds
+(EngineCore pid=3681811) INFO 04-13 13:47:05 [gpu_worker.py:436] Available KV cache memory: 0.39 GiB
+(EngineCore pid=3681811) INFO 04-13 13:47:05 [kv_cache_utils.py:1319] GPU KV cache size: 3,232 tokens
+(EngineCore pid=3681811) INFO 04-13 13:47:05 [kv_cache_utils.py:1324] Maximum concurrency for 1,280 tokens per request: 2.49x
+(EngineCore pid=3681811) INFO 04-13 13:47:05 [core.py:283] init engine (profile, create kv cache, warmup model) took 2.69 seconds
+(EngineCore pid=3681811) INFO 04-13 13:47:06 [vllm.py:790] Asynchronous scheduling is enabled.
+(EngineCore pid=3681811) WARNING 04-13 13:47:06 [vllm.py:848] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(EngineCore pid=3681811) WARNING 04-13 13:47:06 [vllm.py:859] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=3681811) INFO 04-13 13:47:06 [vllm.py:1025] Cudagraph is disabled under eager mode
+(EngineCore pid=3681811) INFO 04-13 13:47:06 [compilation.py:290] Enabled custom fusions: norm_quant, act_quant
+Warming up...
+Warmup iterations:   0%|          | 0/10 [00:00<?, ?it/s]Warmup iterations:  10%|█         | 1/10 [00:05<00:48,  5.44s/it]INFO 04-13 13:47:16 [loggers.py:259] Engine 000: Avg prompt throughput: 197.5 tokens/s, Avg generation throughput: 23.5 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 35.8%, Prefix cache hit rate: 0.0%
+Warmup iterations:  20%|██        | 2/10 [00:10<00:43,  5.43s/it]Warmup iterations:  30%|███       | 3/10 [00:16<00:37,  5.42s/it]INFO 04-13 13:47:26 [loggers.py:259] Engine 000: Avg prompt throughput: 204.5 tokens/s, Avg generation throughput: 23.5 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 34.8%, Prefix cache hit rate: 0.0%
+Warmup iterations:  40%|████      | 4/10 [00:21<00:32,  5.43s/it]Warmup iterations:  50%|█████     | 5/10 [00:27<00:27,  5.44s/it]INFO 04-13 13:47:36 [loggers.py:259] Engine 000: Avg prompt throughput: 204.3 tokens/s, Avg generation throughput: 23.3 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 34.3%, Prefix cache hit rate: 0.0%
+Warmup iterations:  60%|██████    | 6/10 [00:32<00:21,  5.45s/it]Warmup iterations:  70%|███████   | 7/10 [00:38<00:16,  5.45s/it]INFO 04-13 13:47:46 [loggers.py:259] Engine 000: Avg prompt throughput: 204.0 tokens/s, Avg generation throughput: 23.2 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 33.8%, Prefix cache hit rate: 0.0%
+Warmup iterations:  80%|████████  | 8/10 [00:43<00:10,  5.47s/it]Warmup iterations:  90%|█████████ | 9/10 [00:49<00:05,  5.48s/it]INFO 04-13 13:47:56 [loggers.py:259] Engine 000: Avg prompt throughput: 204.1 tokens/s, Avg generation throughput: 23.1 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 32.8%, Prefix cache hit rate: 0.0%
+Warmup iterations: 100%|██████████| 10/10 [00:54<00:00,  5.49s/it]Warmup iterations: 100%|██████████| 10/10 [00:54<00:00,  5.46s/it]
+Bench iterations:   0%|          | 0/3 [00:00<?, ?it/s]Bench iterations:  33%|███▎      | 1/3 [00:05<00:11,  5.50s/it]INFO 04-13 13:48:06 [loggers.py:259] Engine 000: Avg prompt throughput: 204.2 tokens/s, Avg generation throughput: 23.1 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 32.3%, Prefix cache hit rate: 0.0%
+Bench iterations:  67%|██████▋   | 2/3 [00:11<00:05,  5.51s/it]INFO 04-13 13:48:16 [loggers.py:259] Engine 000: Avg prompt throughput: 102.2 tokens/s, Avg generation throughput: 23.9 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 35.8%, Prefix cache hit rate: 0.0%
+Bench iterations: 100%|██████████| 3/3 [00:16<00:00,  5.52s/it]Bench iterations: 100%|██████████| 3/3 [00:16<00:00,  5.51s/it]
+(EngineCore pid=3681811) INFO 04-13 13:48:17 [core.py:1210] Shutdown initiated (timeout=0)
+(EngineCore pid=3681811) INFO 04-13 13:48:17 [core.py:1233] Shutdown complete
+[rank0]:[W413 13:48:17.982677719 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Avg latency: 5.513538586325012 seconds
+10% percentile latency: 5.5042667330009865 seconds
+25% percentile latency: 5.5057403029932175 seconds
+50% percentile latency: 5.5081962529802695 seconds
+75% percentile latency: 5.5186657029844355 seconds
+90% percentile latency: 5.524947372986935 seconds
+99% percentile latency: 5.528716374988435 seconds
+INFO 04-13 13:48:21 [utils.py:233] non-default args: {'dtype': 'float16', 'max_model_len': 2304, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.95, 'enforce_eager': True, 'enable_lora': None, 'reasoning_parser_plugin': '', 'model': 'mistralai/Mistral-7B-v0.1'}
+INFO 04-13 13:48:24 [model.py:549] Resolved architecture: MistralForCausalLM
+WARNING 04-13 13:48:24 [model.py:2016] Casting torch.bfloat16 to torch.float16.
+INFO 04-13 13:48:24 [model.py:1678] Using max model len 2304
+INFO 04-13 13:48:24 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 04-13 13:48:24 [vllm.py:790] Asynchronous scheduling is enabled.
+WARNING 04-13 13:48:24 [vllm.py:848] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 04-13 13:48:24 [vllm.py:859] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 04-13 13:48:24 [vllm.py:1025] Cudagraph is disabled under eager mode
+INFO 04-13 13:48:24 [compilation.py:290] Enabled custom fusions: norm_quant, act_quant
+(EngineCore pid=3682920) INFO 04-13 13:48:29 [core.py:105] Initializing a V1 LLM engine (v0.19.0) with config: model='mistralai/Mistral-7B-v0.1', speculative_config=None, tokenizer='mistralai/Mistral-7B-v0.1', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=2304, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=mistralai/Mistral-7B-v0.1, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=3682920) INFO 04-13 13:48:29 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.58.0.52:40377 backend=nccl
+(EngineCore pid=3682920) INFO 04-13 13:48:29 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=3682920) INFO 04-13 13:48:29 [gpu_model_runner.py:4735] Starting to load model mistralai/Mistral-7B-v0.1...
+(EngineCore pid=3682920) INFO 04-13 13:48:30 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=3682920) INFO 04-13 13:48:30 [flash_attn.py:596] Using FlashAttention version 2
+(EngineCore pid=3682920) Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+(EngineCore pid=3682920) Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:02<00:02,  2.01s/it]
+(EngineCore pid=3682920) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.43s/it]
+(EngineCore pid=3682920) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.52s/it]
+(EngineCore pid=3682920) 
+(EngineCore pid=3682920) INFO 04-13 13:48:35 [default_loader.py:384] Loading weights took 3.08 seconds
+(EngineCore pid=3682920) INFO 04-13 13:48:35 [gpu_model_runner.py:4820] Model loading took 13.5 GiB memory and 5.601273 seconds
+(EngineCore pid=3682920) INFO 04-13 13:48:38 [gpu_worker.py:436] Available KV cache memory: 0.35 GiB
+(EngineCore pid=3682920) INFO 04-13 13:48:38 [kv_cache_utils.py:1319] GPU KV cache size: 2,896 tokens
+(EngineCore pid=3682920) INFO 04-13 13:48:38 [kv_cache_utils.py:1324] Maximum concurrency for 2,304 tokens per request: 1.25x
+(EngineCore pid=3682920) INFO 04-13 13:48:38 [core.py:283] init engine (profile, create kv cache, warmup model) took 2.81 seconds
+(EngineCore pid=3682920) INFO 04-13 13:48:39 [vllm.py:790] Asynchronous scheduling is enabled.
+(EngineCore pid=3682920) WARNING 04-13 13:48:39 [vllm.py:848] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(EngineCore pid=3682920) WARNING 04-13 13:48:39 [vllm.py:859] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=3682920) INFO 04-13 13:48:39 [vllm.py:1025] Cudagraph is disabled under eager mode
+(EngineCore pid=3682920) INFO 04-13 13:48:39 [compilation.py:290] Enabled custom fusions: norm_quant, act_quant
+Warming up...
+Warmup iterations:   0%|          | 0/10 [00:00<?, ?it/s]Warmup iterations:  10%|█         | 1/10 [00:05<00:53,  5.96s/it]INFO 04-13 13:48:50 [loggers.py:259] Engine 000: Avg prompt throughput: 384.6 tokens/s, Avg generation throughput: 21.2 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 75.0%, Prefix cache hit rate: 0.0%
+Warmup iterations:  20%|██        | 2/10 [00:11<00:47,  5.96s/it]Warmup iterations:  30%|███       | 3/10 [00:17<00:41,  5.98s/it]INFO 04-13 13:49:00 [loggers.py:259] Engine 000: Avg prompt throughput: 407.9 tokens/s, Avg generation throughput: 20.8 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 73.3%, Prefix cache hit rate: 0.0%
+Warmup iterations:  40%|████      | 4/10 [00:23<00:35,  5.98s/it]Warmup iterations:  50%|█████     | 5/10 [00:29<00:29,  5.99s/it]INFO 04-13 13:49:10 [loggers.py:259] Engine 000: Avg prompt throughput: 409.6 tokens/s, Avg generation throughput: 20.8 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 71.7%, Prefix cache hit rate: 0.0%
+Warmup iterations:  60%|██████    | 6/10 [00:35<00:24,  6.01s/it]INFO 04-13 13:49:20 [loggers.py:259] Engine 000: Avg prompt throughput: 204.4 tokens/s, Avg generation throughput: 22.2 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 75.0%, Prefix cache hit rate: 0.0%
+Warmup iterations:  70%|███████   | 7/10 [00:42<00:18,  6.02s/it]Warmup iterations:  80%|████████  | 8/10 [00:48<00:12,  6.07s/it]INFO 04-13 13:49:30 [loggers.py:259] Engine 000: Avg prompt throughput: 409.0 tokens/s, Avg generation throughput: 20.3 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 72.8%, Prefix cache hit rate: 0.0%
+Warmup iterations:  90%|█████████ | 9/10 [00:54<00:06,  6.09s/it]Warmup iterations: 100%|██████████| 10/10 [01:00<00:00,  6.11s/it]Warmup iterations: 100%|██████████| 10/10 [01:00<00:00,  6.05s/it]
+Bench iterations:   0%|          | 0/3 [00:00<?, ?it/s]INFO 04-13 13:49:41 [loggers.py:259] Engine 000: Avg prompt throughput: 391.6 tokens/s, Avg generation throughput: 20.4 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 71.7%, Prefix cache hit rate: 0.0%
+Bench iterations:  33%|███▎      | 1/3 [00:06<00:12,  6.13s/it]INFO 04-13 13:49:51 [loggers.py:259] Engine 000: Avg prompt throughput: 204.3 tokens/s, Avg generation throughput: 21.8 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 74.4%, Prefix cache hit rate: 0.0%
+Bench iterations:  67%|██████▋   | 2/3 [00:12<00:06,  6.14s/it]Bench iterations: 100%|██████████| 3/3 [00:18<00:00,  6.14s/it]Bench iterations: 100%|██████████| 3/3 [00:18<00:00,  6.14s/it]
+(EngineCore pid=3682920) INFO 04-13 13:49:58 [core.py:1210] Shutdown initiated (timeout=0)
+(EngineCore pid=3682920) INFO 04-13 13:49:58 [core.py:1233] Shutdown complete
+[rank0]:[W413 13:49:58.445046220 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Avg latency: 6.136449475345823 seconds
+10% percentile latency: 6.133222740609199 seconds
+25% percentile latency: 6.135038425505627 seconds
+50% percentile latency: 6.138064566999674 seconds
+75% percentile latency: 6.138668071012944 seconds
+90% percentile latency: 6.139030173420906 seconds
+99% percentile latency: 6.139247434865683 seconds
+INFO 04-13 13:50:03 [utils.py:233] non-default args: {'dtype': 'float16', 'max_model_len': 2816, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.95, 'enforce_eager': True, 'enable_lora': None, 'reasoning_parser_plugin': '', 'model': 'mistralai/Mistral-7B-v0.1'}
+INFO 04-13 13:50:05 [model.py:549] Resolved architecture: MistralForCausalLM
+WARNING 04-13 13:50:05 [model.py:2016] Casting torch.bfloat16 to torch.float16.
+INFO 04-13 13:50:05 [model.py:1678] Using max model len 2816
+INFO 04-13 13:50:05 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 04-13 13:50:05 [vllm.py:790] Asynchronous scheduling is enabled.
+WARNING 04-13 13:50:05 [vllm.py:848] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 04-13 13:50:05 [vllm.py:859] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 04-13 13:50:05 [vllm.py:1025] Cudagraph is disabled under eager mode
+INFO 04-13 13:50:05 [compilation.py:290] Enabled custom fusions: norm_quant, act_quant
+(EngineCore pid=3683982) INFO 04-13 13:50:09 [core.py:105] Initializing a V1 LLM engine (v0.19.0) with config: model='mistralai/Mistral-7B-v0.1', speculative_config=None, tokenizer='mistralai/Mistral-7B-v0.1', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=2816, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=mistralai/Mistral-7B-v0.1, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=3683982) INFO 04-13 13:50:09 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.58.0.52:40957 backend=nccl
+(EngineCore pid=3683982) INFO 04-13 13:50:09 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=3683982) INFO 04-13 13:50:10 [gpu_model_runner.py:4735] Starting to load model mistralai/Mistral-7B-v0.1...
+(EngineCore pid=3683982) INFO 04-13 13:50:10 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=3683982) INFO 04-13 13:50:10 [flash_attn.py:596] Using FlashAttention version 2
+(EngineCore pid=3683982) Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+(EngineCore pid=3683982) Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:02<00:02,  2.08s/it]
+(EngineCore pid=3683982) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.52s/it]
+(EngineCore pid=3683982) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.60s/it]
+(EngineCore pid=3683982) 
+(EngineCore pid=3683982) INFO 04-13 13:50:15 [default_loader.py:384] Loading weights took 3.26 seconds
+(EngineCore pid=3683982) INFO 04-13 13:50:15 [gpu_model_runner.py:4820] Model loading took 13.5 GiB memory and 5.190234 seconds
+(EngineCore pid=3683982) INFO 04-13 13:50:18 [gpu_worker.py:436] Available KV cache memory: 0.41 GiB
+(EngineCore pid=3683982) INFO 04-13 13:50:18 [kv_cache_utils.py:1319] GPU KV cache size: 3,328 tokens
+(EngineCore pid=3683982) INFO 04-13 13:50:18 [kv_cache_utils.py:1324] Maximum concurrency for 2,816 tokens per request: 1.18x
+(EngineCore pid=3683982) INFO 04-13 13:50:18 [core.py:283] init engine (profile, create kv cache, warmup model) took 2.78 seconds
+(EngineCore pid=3683982) INFO 04-13 13:50:19 [vllm.py:790] Asynchronous scheduling is enabled.
+(EngineCore pid=3683982) WARNING 04-13 13:50:19 [vllm.py:848] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(EngineCore pid=3683982) WARNING 04-13 13:50:19 [vllm.py:859] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=3683982) INFO 04-13 13:50:19 [vllm.py:1025] Cudagraph is disabled under eager mode
+(EngineCore pid=3683982) INFO 04-13 13:50:19 [compilation.py:290] Enabled custom fusions: norm_quant, act_quant
+Warming up...
+Warmup iterations:   0%|          | 0/10 [00:00<?, ?it/s]Warmup iterations:  10%|█         | 1/10 [00:06<00:56,  6.23s/it]INFO 04-13 13:50:30 [loggers.py:259] Engine 000: Avg prompt throughput: 470.6 tokens/s, Avg generation throughput: 20.2 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 80.2%, Prefix cache hit rate: 0.0%
+Warmup iterations:  20%|██        | 2/10 [00:12<00:49,  6.19s/it]Warmup iterations:  30%|███       | 3/10 [00:18<00:43,  6.19s/it]INFO 04-13 13:50:40 [loggers.py:259] Engine 000: Avg prompt throughput: 510.3 tokens/s, Avg generation throughput: 19.8 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 78.7%, Prefix cache hit rate: 0.0%
+Warmup iterations:  40%|████      | 4/10 [00:24<00:37,  6.24s/it]INFO 04-13 13:50:50 [loggers.py:259] Engine 000: Avg prompt throughput: 255.3 tokens/s, Avg generation throughput: 21.5 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 81.2%, Prefix cache hit rate: 0.0%
+Warmup iterations:  50%|█████     | 5/10 [00:31<00:31,  6.25s/it]Warmup iterations:  60%|██████    | 6/10 [00:37<00:25,  6.27s/it]INFO 04-13 13:51:00 [loggers.py:259] Engine 000: Avg prompt throughput: 511.6 tokens/s, Avg generation throughput: 19.4 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 79.2%, Prefix cache hit rate: 0.0%
+Warmup iterations:  70%|███████   | 7/10 [00:43<00:18,  6.31s/it]Warmup iterations:  80%|████████  | 8/10 [00:50<00:12,  6.35s/it]INFO 04-13 13:51:10 [loggers.py:259] Engine 000: Avg prompt throughput: 500.7 tokens/s, Avg generation throughput: 19.2 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 77.8%, Prefix cache hit rate: 0.0%
+Warmup iterations:  90%|█████████ | 9/10 [00:56<00:06,  6.36s/it]INFO 04-13 13:51:20 [loggers.py:259] Engine 000: Avg prompt throughput: 255.0 tokens/s, Avg generation throughput: 21.2 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 80.2%, Prefix cache hit rate: 0.0%
+Warmup iterations: 100%|██████████| 10/10 [01:03<00:00,  6.36s/it]Warmup iterations: 100%|██████████| 10/10 [01:03<00:00,  6.30s/it]
+Bench iterations:   0%|          | 0/3 [00:00<?, ?it/s]Bench iterations:  33%|███▎      | 1/3 [00:06<00:12,  6.38s/it]INFO 04-13 13:51:30 [loggers.py:259] Engine 000: Avg prompt throughput: 511.0 tokens/s, Avg generation throughput: 19.3 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 78.3%, Prefix cache hit rate: 0.0%
+Bench iterations:  67%|██████▋   | 2/3 [00:12<00:06,  6.37s/it]INFO 04-13 13:51:41 [loggers.py:259] Engine 000: Avg prompt throughput: 255.0 tokens/s, Avg generation throughput: 21.3 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 80.7%, Prefix cache hit rate: 0.0%
+Bench iterations: 100%|██████████| 3/3 [00:19<00:00,  6.35s/it]Bench iterations: 100%|██████████| 3/3 [00:19<00:00,  6.36s/it]
+(EngineCore pid=3683982) INFO 04-13 13:51:41 [core.py:1210] Shutdown initiated (timeout=0)
+(EngineCore pid=3683982) INFO 04-13 13:51:41 [core.py:1233] Shutdown complete
+[rank0]:[W413 13:51:41.417392004 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Avg latency: 6.355802796004961 seconds
+10% percentile latency: 6.3375732532003894 seconds
+25% percentile latency: 6.344818999001291 seconds
+50% percentile latency: 6.356895242002793 seconds
+75% percentile latency: 6.367332816007547 seconds
+90% percentile latency: 6.3735953604104 seconds
+99% percentile latency: 6.377352887052111 seconds
+INFO 04-13 13:51:46 [utils.py:233] non-default args: {'dtype': 'float16', 'max_model_len': 3328, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.95, 'enforce_eager': True, 'enable_lora': None, 'reasoning_parser_plugin': '', 'model': 'mistralai/Mistral-7B-v0.1'}
+INFO 04-13 13:51:48 [model.py:549] Resolved architecture: MistralForCausalLM
+WARNING 04-13 13:51:48 [model.py:2016] Casting torch.bfloat16 to torch.float16.
+INFO 04-13 13:51:48 [model.py:1678] Using max model len 3328
+INFO 04-13 13:51:48 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 04-13 13:51:48 [vllm.py:790] Asynchronous scheduling is enabled.
+WARNING 04-13 13:51:48 [vllm.py:848] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 04-13 13:51:48 [vllm.py:859] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 04-13 13:51:48 [vllm.py:1025] Cudagraph is disabled under eager mode
+INFO 04-13 13:51:48 [compilation.py:290] Enabled custom fusions: norm_quant, act_quant
+(EngineCore pid=3685211) INFO 04-13 13:51:53 [core.py:105] Initializing a V1 LLM engine (v0.19.0) with config: model='mistralai/Mistral-7B-v0.1', speculative_config=None, tokenizer='mistralai/Mistral-7B-v0.1', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=3328, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=mistralai/Mistral-7B-v0.1, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=3685211) INFO 04-13 13:51:53 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.58.0.52:42699 backend=nccl
+(EngineCore pid=3685211) INFO 04-13 13:51:53 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=3685211) INFO 04-13 13:51:53 [gpu_model_runner.py:4735] Starting to load model mistralai/Mistral-7B-v0.1...
+(EngineCore pid=3685211) INFO 04-13 13:51:54 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=3685211) INFO 04-13 13:51:54 [flash_attn.py:596] Using FlashAttention version 2
+(EngineCore pid=3685211) Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+(EngineCore pid=3685211) Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:02<00:02,  2.02s/it]
+(EngineCore pid=3685211) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.45s/it]
+(EngineCore pid=3685211) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.53s/it]
+(EngineCore pid=3685211) 
+(EngineCore pid=3685211) INFO 04-13 13:51:59 [default_loader.py:384] Loading weights took 3.12 seconds
+(EngineCore pid=3685211) INFO 04-13 13:51:59 [gpu_model_runner.py:4820] Model loading took 13.5 GiB memory and 5.460910 seconds
+(EngineCore pid=3685211) INFO 04-13 13:52:02 [gpu_worker.py:436] Available KV cache memory: 0.4 GiB
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108] EngineCore failed to start.
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108] Traceback (most recent call last):
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 1082, in run_engine_core
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]     return func(*args, **kwargs)
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 848, in __init__
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]     super().__init__(
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 124, in __init__
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]     return func(*args, **kwargs)
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 258, in _initialize_kv_caches
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]     kv_cache_configs = get_kv_cache_configs(
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 1579, in get_kv_cache_configs
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]     _check_enough_kv_cache_memory(
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 644, in _check_enough_kv_cache_memory
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]     raise ValueError(
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108] ValueError: To serve at least one request with the models's max seq len (3328), (0.41 GiB KV cache is needed, which is larger than the available KV cache memory (0.4 GiB). Based on the available memory, the estimated maximum model length is 3280. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(EngineCore pid=3685211) Process EngineCore:
+(EngineCore pid=3685211) Traceback (most recent call last):
+(EngineCore pid=3685211)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=3685211)     self.run()
+(EngineCore pid=3685211)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/multiprocessing/process.py", line 108, in run
+(EngineCore pid=3685211)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=3685211)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 1112, in run_engine_core
+(EngineCore pid=3685211)     raise e
+(EngineCore pid=3685211)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 1082, in run_engine_core
+(EngineCore pid=3685211)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3685211)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685211)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685211)     return func(*args, **kwargs)
+(EngineCore pid=3685211)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685211)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 848, in __init__
+(EngineCore pid=3685211)     super().__init__(
+(EngineCore pid=3685211)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 124, in __init__
+(EngineCore pid=3685211)     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3685211)                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685211)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685211)     return func(*args, **kwargs)
+(EngineCore pid=3685211)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685211)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 258, in _initialize_kv_caches
+(EngineCore pid=3685211)     kv_cache_configs = get_kv_cache_configs(
+(EngineCore pid=3685211)                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685211)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 1579, in get_kv_cache_configs
+(EngineCore pid=3685211)     _check_enough_kv_cache_memory(
+(EngineCore pid=3685211)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 644, in _check_enough_kv_cache_memory
+(EngineCore pid=3685211)     raise ValueError(
+(EngineCore pid=3685211) ValueError: To serve at least one request with the models's max seq len (3328), (0.41 GiB KV cache is needed, which is larger than the available KV cache memory (0.4 GiB). Based on the available memory, the estimated maximum model length is 3280. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+[rank0]:[W413 13:52:02.345419140 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/cli/main.py", line 81, in <module>
+    main()
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/cli/main.py", line 75, in main
+    args.dispatch_function(args)
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/cli/benchmark/latency.py", line 21, in cmd
+    main(args)
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/benchmarks/latency.py", line 87, in main
+    llm = LLM.from_engine_args(engine_args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 415, in from_engine_args
+    return cls(**vars(engine_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 382, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 177, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 111, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 101, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 710, in __init__
+    super().__init__(
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 535, in __init__
+    with launch_core_engines(
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 998, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 1057, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+INFO 04-13 13:52:07 [utils.py:233] non-default args: {'dtype': 'float16', 'max_model_len': 4352, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.95, 'enforce_eager': True, 'enable_lora': None, 'reasoning_parser_plugin': '', 'model': 'mistralai/Mistral-7B-v0.1'}
+INFO 04-13 13:52:09 [model.py:549] Resolved architecture: MistralForCausalLM
+WARNING 04-13 13:52:09 [model.py:2016] Casting torch.bfloat16 to torch.float16.
+INFO 04-13 13:52:09 [model.py:1678] Using max model len 4352
+INFO 04-13 13:52:09 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 04-13 13:52:09 [vllm.py:790] Asynchronous scheduling is enabled.
+WARNING 04-13 13:52:09 [vllm.py:848] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 04-13 13:52:09 [vllm.py:859] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 04-13 13:52:09 [vllm.py:1025] Cudagraph is disabled under eager mode
+INFO 04-13 13:52:09 [compilation.py:290] Enabled custom fusions: norm_quant, act_quant
+(EngineCore pid=3685459) INFO 04-13 13:52:14 [core.py:105] Initializing a V1 LLM engine (v0.19.0) with config: model='mistralai/Mistral-7B-v0.1', speculative_config=None, tokenizer='mistralai/Mistral-7B-v0.1', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=4352, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=mistralai/Mistral-7B-v0.1, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=3685459) INFO 04-13 13:52:14 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.58.0.52:39185 backend=nccl
+(EngineCore pid=3685459) INFO 04-13 13:52:14 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=3685459) INFO 04-13 13:52:15 [gpu_model_runner.py:4735] Starting to load model mistralai/Mistral-7B-v0.1...
+(EngineCore pid=3685459) INFO 04-13 13:52:15 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=3685459) INFO 04-13 13:52:15 [flash_attn.py:596] Using FlashAttention version 2
+(EngineCore pid=3685459) Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+(EngineCore pid=3685459) Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:02<00:02,  2.02s/it]
+(EngineCore pid=3685459) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.43s/it]
+(EngineCore pid=3685459) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.52s/it]
+(EngineCore pid=3685459) 
+(EngineCore pid=3685459) INFO 04-13 13:52:20 [default_loader.py:384] Loading weights took 3.09 seconds
+(EngineCore pid=3685459) INFO 04-13 13:52:21 [gpu_model_runner.py:4820] Model loading took 13.5 GiB memory and 5.491499 seconds
+(EngineCore pid=3685459) INFO 04-13 13:52:23 [gpu_worker.py:436] Available KV cache memory: 0.42 GiB
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108] EngineCore failed to start.
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108] Traceback (most recent call last):
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 1082, in run_engine_core
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]     return func(*args, **kwargs)
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 848, in __init__
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]     super().__init__(
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 124, in __init__
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]     return func(*args, **kwargs)
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 258, in _initialize_kv_caches
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]     kv_cache_configs = get_kv_cache_configs(
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 1579, in get_kv_cache_configs
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]     _check_enough_kv_cache_memory(
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 644, in _check_enough_kv_cache_memory
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]     raise ValueError(
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108] ValueError: To serve at least one request with the models's max seq len (4352), (0.53 GiB KV cache is needed, which is larger than the available KV cache memory (0.42 GiB). Based on the available memory, the estimated maximum model length is 3392. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(EngineCore pid=3685459) Process EngineCore:
+(EngineCore pid=3685459) Traceback (most recent call last):
+(EngineCore pid=3685459)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=3685459)     self.run()
+(EngineCore pid=3685459)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/multiprocessing/process.py", line 108, in run
+(EngineCore pid=3685459)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=3685459)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 1112, in run_engine_core
+(EngineCore pid=3685459)     raise e
+(EngineCore pid=3685459)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 1082, in run_engine_core
+(EngineCore pid=3685459)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3685459)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685459)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685459)     return func(*args, **kwargs)
+(EngineCore pid=3685459)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685459)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 848, in __init__
+(EngineCore pid=3685459)     super().__init__(
+(EngineCore pid=3685459)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 124, in __init__
+(EngineCore pid=3685459)     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3685459)                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685459)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685459)     return func(*args, **kwargs)
+(EngineCore pid=3685459)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685459)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 258, in _initialize_kv_caches
+(EngineCore pid=3685459)     kv_cache_configs = get_kv_cache_configs(
+(EngineCore pid=3685459)                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685459)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 1579, in get_kv_cache_configs
+(EngineCore pid=3685459)     _check_enough_kv_cache_memory(
+(EngineCore pid=3685459)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 644, in _check_enough_kv_cache_memory
+(EngineCore pid=3685459)     raise ValueError(
+(EngineCore pid=3685459) ValueError: To serve at least one request with the models's max seq len (4352), (0.53 GiB KV cache is needed, which is larger than the available KV cache memory (0.42 GiB). Based on the available memory, the estimated maximum model length is 3392. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+[rank0]:[W413 13:52:24.625021208 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/cli/main.py", line 81, in <module>
+    main()
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/cli/main.py", line 75, in main
+    args.dispatch_function(args)
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/cli/benchmark/latency.py", line 21, in cmd
+    main(args)
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/benchmarks/latency.py", line 87, in main
+    llm = LLM.from_engine_args(engine_args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 415, in from_engine_args
+    return cls(**vars(engine_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 382, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 177, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 111, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 101, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 710, in __init__
+    super().__init__(
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 535, in __init__
+    with launch_core_engines(
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 998, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 1057, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+INFO 04-13 13:52:28 [utils.py:233] non-default args: {'dtype': 'float16', 'max_model_len': 8448, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.95, 'enforce_eager': True, 'enable_lora': None, 'reasoning_parser_plugin': '', 'model': 'mistralai/Mistral-7B-v0.1'}
+INFO 04-13 13:52:31 [model.py:549] Resolved architecture: MistralForCausalLM
+WARNING 04-13 13:52:31 [model.py:2016] Casting torch.bfloat16 to torch.float16.
+INFO 04-13 13:52:31 [model.py:1678] Using max model len 8448
+INFO 04-13 13:52:31 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 04-13 13:52:31 [vllm.py:790] Asynchronous scheduling is enabled.
+WARNING 04-13 13:52:31 [vllm.py:848] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 04-13 13:52:31 [vllm.py:859] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 04-13 13:52:31 [vllm.py:1025] Cudagraph is disabled under eager mode
+INFO 04-13 13:52:31 [compilation.py:290] Enabled custom fusions: norm_quant, act_quant
+(EngineCore pid=3685672) INFO 04-13 13:52:35 [core.py:105] Initializing a V1 LLM engine (v0.19.0) with config: model='mistralai/Mistral-7B-v0.1', speculative_config=None, tokenizer='mistralai/Mistral-7B-v0.1', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=8448, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=mistralai/Mistral-7B-v0.1, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'splitting_ops': [], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=3685672) INFO 04-13 13:52:35 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.58.0.52:45505 backend=nccl
+(EngineCore pid=3685672) INFO 04-13 13:52:36 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=3685672) INFO 04-13 13:52:36 [gpu_model_runner.py:4735] Starting to load model mistralai/Mistral-7B-v0.1...
+(EngineCore pid=3685672) INFO 04-13 13:52:36 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=3685672) INFO 04-13 13:52:36 [flash_attn.py:596] Using FlashAttention version 2
+(EngineCore pid=3685672) Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+(EngineCore pid=3685672) Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:02<00:02,  2.02s/it]
+(EngineCore pid=3685672) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.46s/it]
+(EngineCore pid=3685672) Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:03<00:00,  1.54s/it]
+(EngineCore pid=3685672) 
+(EngineCore pid=3685672) INFO 04-13 13:52:42 [default_loader.py:384] Loading weights took 3.13 seconds
+(EngineCore pid=3685672) INFO 04-13 13:52:42 [gpu_model_runner.py:4820] Model loading took 13.5 GiB memory and 5.638025 seconds
+(EngineCore pid=3685672) INFO 04-13 13:52:44 [gpu_worker.py:436] Available KV cache memory: 0.38 GiB
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108] EngineCore failed to start.
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108] Traceback (most recent call last):
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 1082, in run_engine_core
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]     return func(*args, **kwargs)
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 848, in __init__
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]     super().__init__(
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 124, in __init__
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]     return func(*args, **kwargs)
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 258, in _initialize_kv_caches
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]     kv_cache_configs = get_kv_cache_configs(
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 1579, in get_kv_cache_configs
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]     _check_enough_kv_cache_memory(
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 644, in _check_enough_kv_cache_memory
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]     raise ValueError(
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108] ValueError: To serve at least one request with the models's max seq len (8448), (1.03 GiB KV cache is needed, which is larger than the available KV cache memory (0.38 GiB). Based on the available memory, the estimated maximum model length is 3120. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(EngineCore pid=3685672) Process EngineCore:
+(EngineCore pid=3685672) Traceback (most recent call last):
+(EngineCore pid=3685672)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=3685672)     self.run()
+(EngineCore pid=3685672)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/multiprocessing/process.py", line 108, in run
+(EngineCore pid=3685672)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=3685672)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 1112, in run_engine_core
+(EngineCore pid=3685672)     raise e
+(EngineCore pid=3685672)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 1082, in run_engine_core
+(EngineCore pid=3685672)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3685672)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685672)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685672)     return func(*args, **kwargs)
+(EngineCore pid=3685672)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685672)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 848, in __init__
+(EngineCore pid=3685672)     super().__init__(
+(EngineCore pid=3685672)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 124, in __init__
+(EngineCore pid=3685672)     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3685672)                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685672)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3685672)     return func(*args, **kwargs)
+(EngineCore pid=3685672)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685672)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core.py", line 258, in _initialize_kv_caches
+(EngineCore pid=3685672)     kv_cache_configs = get_kv_cache_configs(
+(EngineCore pid=3685672)                        ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3685672)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 1579, in get_kv_cache_configs
+(EngineCore pid=3685672)     _check_enough_kv_cache_memory(
+(EngineCore pid=3685672)   File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/core/kv_cache_utils.py", line 644, in _check_enough_kv_cache_memory
+(EngineCore pid=3685672)     raise ValueError(
+(EngineCore pid=3685672) ValueError: To serve at least one request with the models's max seq len (8448), (1.03 GiB KV cache is needed, which is larger than the available KV cache memory (0.38 GiB). Based on the available memory, the estimated maximum model length is 3120. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+[rank0]:[W413 13:52:45.846407949 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/cli/main.py", line 81, in <module>
+    main()
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/cli/main.py", line 75, in main
+    args.dispatch_function(args)
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/cli/benchmark/latency.py", line 21, in cmd
+    main(args)
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/benchmarks/latency.py", line 87, in main
+    llm = LLM.from_engine_args(engine_args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 415, in from_engine_args
+    return cls(**vars(engine_args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/entrypoints/llm.py", line 382, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 177, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/llm_engine.py", line 111, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 101, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 710, in __init__
+    super().__init__(
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/core_client.py", line 535, in __init__
+    with launch_core_engines(
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 998, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/snu/miniconda3/envs/vllm_baseline/lib/python3.11/site-packages/vllm/v1/engine/utils.py", line 1057, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}

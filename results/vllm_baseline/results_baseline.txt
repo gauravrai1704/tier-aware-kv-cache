@@ -1,0 +1,30 @@
+=== Testing input_len=1024 (max_model_len=1280) ===
+(EngineCore pid=3681811) INFO 04-13 13:47:05 [kv_cache_utils.py:1319] GPU KV cache size: 3,232 tokens
+Avg latency: 5.513538586325012 seconds
+
+=== Testing input_len=2048 (max_model_len=2304) ===
+(EngineCore pid=3682920) INFO 04-13 13:48:38 [kv_cache_utils.py:1319] GPU KV cache size: 2,896 tokens
+Avg latency: 6.136449475345823 seconds
+
+=== Testing input_len=2560 (max_model_len=2816) ===
+(EngineCore pid=3683982) INFO 04-13 13:50:18 [kv_cache_utils.py:1319] GPU KV cache size: 3,328 tokens
+Avg latency: 6.355802796004961 seconds
+
+=== Testing input_len=3072 (max_model_len=3328) ===
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108]     raise ValueError(
+(EngineCore pid=3685211) ERROR 04-13 13:52:02 [core.py:1108] ValueError: To serve at least one request with the models's max seq len (3328), (0.41 GiB KV cache is needed, which is larger than the available KV cache memory (0.4 GiB). Based on the available memory, the estimated maximum model length is 3280. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(EngineCore pid=3685211)     raise ValueError(
+(EngineCore pid=3685211) ValueError: To serve at least one request with the models's max seq len (3328), (0.41 GiB KV cache is needed, which is larger than the available KV cache memory (0.4 GiB). Based on the available memory, the estimated maximum model length is 3280. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+
+=== Testing input_len=4096 (max_model_len=4352) ===
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108]     raise ValueError(
+(EngineCore pid=3685459) ERROR 04-13 13:52:23 [core.py:1108] ValueError: To serve at least one request with the models's max seq len (4352), (0.53 GiB KV cache is needed, which is larger than the available KV cache memory (0.42 GiB). Based on the available memory, the estimated maximum model length is 3392. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(EngineCore pid=3685459)     raise ValueError(
+(EngineCore pid=3685459) ValueError: To serve at least one request with the models's max seq len (4352), (0.53 GiB KV cache is needed, which is larger than the available KV cache memory (0.42 GiB). Based on the available memory, the estimated maximum model length is 3392. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+
+=== Testing input_len=8192 (max_model_len=8448) ===
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108]     raise ValueError(
+(EngineCore pid=3685672) ERROR 04-13 13:52:44 [core.py:1108] ValueError: To serve at least one request with the models's max seq len (8448), (1.03 GiB KV cache is needed, which is larger than the available KV cache memory (0.38 GiB). Based on the available memory, the estimated maximum model length is 3120. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+(EngineCore pid=3685672)     raise ValueError(
+(EngineCore pid=3685672) ValueError: To serve at least one request with the models's max seq len (8448), (1.03 GiB KV cache is needed, which is larger than the available KV cache memory (0.38 GiB). Based on the available memory, the estimated maximum model length is 3120. Try increasing `gpu_memory_utilization` or decreasing `max_model_len` when initializing the engine. See https://docs.vllm.ai/en/latest/configuration/conserving_memory/ for more details.
+

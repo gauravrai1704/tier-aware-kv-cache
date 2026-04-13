@@ -1,0 +1,57 @@
+
+############################################################
+  Comparison: T1-Only vs Tiered
+  Model: LLaMA-13B  |  Workload: long-context
+  T1 cap: 512MB  T2 cap: 15000MB
+############################################################
+
+[T1-Only (512MB)]
+
+============================================================
+Benchmark: LLaMA-13B | long-context | runs=5
+  T1=512MB  T2=0MB
+============================================================
+
+  Run 1/5 ... throughput=466.7 tok/s  ttft=8.05ms  tpot=1.463ms  T1=85.0%  T2=0.0%
+
+  Run 2/5 ... throughput=469.7 tok/s  ttft=13.05ms  tpot=1.445ms  T1=85.0%  T2=0.0%
+
+  Run 3/5 ... throughput=468.9 tok/s  ttft=13.08ms  tpot=1.452ms  T1=85.0%  T2=0.0%
+
+  Run 4/5 ... throughput=468.0 tok/s  ttft=7.35ms  tpot=1.459ms  T1=85.0%  T2=0.0%
+
+  Run 5/5 ... throughput=470.3 tok/s  ttft=13.22ms  tpot=1.442ms  T1=85.0%  T2=0.0%
+
+  Summary:
+    Throughput : 468.7 ± 1.4 tok/s
+    TTFT       : 10.95 ms
+    TPOT       : 1.452 ms
+
+[Tiered  (512+15000)]
+
+============================================================
+Benchmark: LLaMA-13B | long-context | runs=5
+  T1=512MB  T2=15000MB
+============================================================
+
+  Run 1/5 ... throughput=468.9 tok/s  ttft=7.32ms  tpot=1.459ms  T1=85.0%  T2=847.1%
+
+  Run 2/5 ... throughput=469.2 tok/s  ttft=7.55ms  tpot=1.458ms  T1=85.0%  T2=847.1%
+
+  Run 3/5 ... throughput=471.6 tok/s  ttft=7.57ms  tpot=1.450ms  T1=85.0%  T2=847.1%
+
+  Run 4/5 ... throughput=470.2 tok/s  ttft=7.42ms  tpot=1.458ms  T1=85.0%  T2=847.1%
+
+  Run 5/5 ... throughput=468.5 tok/s  ttft=13.37ms  tpot=1.451ms  T1=85.0%  T2=847.1%
+
+  Summary:
+    Throughput : 469.7 ± 1.2 tok/s
+    TTFT       : 8.65 ms
+    TPOT       : 1.455 ms
+
+────────────────────────────────────────────────────────────
+Configuration            Throughput (tok/s)    TTFT (ms)  TPOT (ms)
+────────────────────────────────────────────────────────────
+  T1-Only (512MB)                     468.7        10.95      1.452
+  Tiered  (512+15000)                 469.7         8.65      1.455
+────────────────────────────────────────────────────────────

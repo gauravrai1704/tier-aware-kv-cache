@@ -1,0 +1,39 @@
+# configs/default_config.yaml
+# Tier-Aware KV Cache — Default Configuration
+
+memory:
+  tier1_capacity_mb: 4096       # GPU HBM / local DRAM
+  tier2_capacity_mb: 32768      # CXL / NVMe
+  block_size_tokens: 16
+  tier1_pressure_threshold: 0.85
+  tier2_path: "/dev/dax0.0"     # DAX-mapped CXL/NVMe path
+  enable_cow_sharing: true
+  enable_numa_aware: true
+
+model:
+  num_layers: 32
+  num_heads: 8
+  head_dim: 128
+  dtype: "float16"
+  gpu_device_id: 0
+
+migration:
+  sweep_interval_ms: 200
+  demotion_batch_size: 32
+  alto_promote_threshold: 0.4
+  llm_aware_policy: true
+
+profiler:
+  sampling_interval_ms: 100
+  aol_demotion_threshold: 0.3
+  half_life_seconds: 2.0
+
+api:
+  host: "0.0.0.0"
+  port: 8080
+  log_level: "info"
+
+benchmark:
+  default_model: "7b"
+  default_workload: "long"
+  num_runs: 3

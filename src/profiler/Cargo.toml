@@ -1,0 +1,26 @@
+[package]
+name    = "aol_profiler"
+version = "0.1.0"
+edition = "2021"
+description = "Amortized Offcore Latency profiler for Tier-Aware KV Cache"
+
+[lib]
+name   = "aol_profiler"
+crate-type = ["cdylib", "staticlib", "rlib"]
+
+[dependencies]
+# libc is needed for the perf_event_open syscall on Linux
+libc = "0.2"
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name    = "profiler_bench"
+harness = false
+
+[profile.release]
+opt-level    = 3
+lto          = true
+codegen-units = 1
+panic        = "abort"
