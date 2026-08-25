@@ -42,14 +42,7 @@ with less than 0.2% throughput overhead.
 | Attention kernel | CUDA |
 | REST API | FastAPI |
 
-## Setup
 
-```bash
-git clone https://github.com/gauravrai1704/tier-aware-kv-cache.git
-cd tier-aware-kv-cache
-pip install -r requirements.txt
-python -m unittest discover -s tests -v
-```
 
 ## Build C++ Library
 
