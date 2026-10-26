@@ -7,7 +7,7 @@ The work is evaluated on two tracks:
 | Track | Environment | Purpose |
 |-------|-------------|---------|
 | **Hardware** | NVIDIA RTX A4000 (16 GB) + Intel i9-12900K, Mistral-7B-v0.1 (FP16) via vLLM v0.19.0 | Feasibility, and the timing constants that calibrate the simulator |
-| **Simulated** | Hardware-calibrated discrete-event model (Google Colab) | Six-system comparison, ablations, and VRAM-budget sweeps |
+| **Google Colab** | Hardware-calibrated discrete-event model  | Six-system comparison, ablations, and VRAM-budget sweeps |
 
 ---
 
