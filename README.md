@@ -169,3 +169,7 @@ python3 benchmarks/benchmark_suite.py \
 - 15 Python (orchestrator, AOL, kdemoted)
 - 11 C++ (TieredBlockAllocator)
 - 8 C++ (MigrationOrchestrator)
+
+### Code Availability
+
+> **Note:** The Track 2 code — the discrete-event simulator, the baseline policy implementations, and the APF LSTM training and inference pipeline (originally developed in Google Colab) — is **not yet publicly released**, as this work is ongoing. The results above come from that codebase, and it will be added to this repository once the work is finalized. This repository currently contains the full **Track 1 (hardware)** implementation: the policy engine, the C++/CUDA block allocator, the migration orchestrator, the benchmarks, and the tests.
